@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Post;
+use App\Models\Barang;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,3 +121,37 @@ $total_p = ($total - $cb) - $potongan;
     "total pembayaran :" .$total_p. "<br>";
 });
 
+
+Route::get('/post', [PostController::class, 'menampilkan']);
+Route::get('/barang', [PostController::class, 'menampilkan2']);
+
+// routing dengan model
+
+// -- untuk menamoulkan semua
+// Route::get('/barang', function () {
+//     $barang = Barang::all();
+//     return view('tampil_barang', compact('barang'));
+// });
+
+// untuk menampilkan yang spesifik
+// Route::get('/barang', function () {
+//     $barang = Barang::where('id',1)->get();
+//     return view('tampil_barang', compact('barang'));
+// });
+
+// menampilkan dengan out JSON
+// Route::get('/barang/{id}', function ($id) {
+//     $barang = Barang::find($id);
+//     if ($barang) {
+//         return $barang;
+//     } else {
+//         return "Data dengan ID $id tidak ditemukan.";
+//     }
+// });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

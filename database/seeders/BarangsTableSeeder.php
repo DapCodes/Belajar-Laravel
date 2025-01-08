@@ -15,13 +15,13 @@ class BarangsTableSeeder extends Seeder
      */
     public function run()
     {
-        $barang = [
-            ['nama_barang'=>'Ayam Goreng', 'merk'=>'KFC', 'harga'=>'20000'],
-            ['nama_barang'=>'Soda', 'merk'=>'CocaCola', 'harga'=>'8000'],
-            ['nama_barang'=>'Mie Instan', 'merk'=>'Indomie', 'harga'=>'4000'],
-            ['nama_barang'=>'Air Mineral', 'merk'=>'Aqua', 'harga'=>'5000'],
-            ['nama_barang'=>'Keju', 'merk'=>'Craft', 'harga'=>'15000']
-        ];
-        DB::table('barangs')->insert($barang);
+        // $barang = [
+        //     ['nama_barang'=>'Ayam Goreng', 'merk'=>'KFC', 'harga'=>'20000'],
+        //     ['nama_barang'=>'Soda', 'merk'=>'CocaCola', 'harga'=>'8000'],
+        //     ['nama_barang'=>'Mie Instan', 'merk'=>'Indomie', 'harga'=>'4000'],
+        //     ['nama_barang'=>'Air Mineral', 'merk'=>'Aqua', 'harga'=>'5000'],
+        //     ['nama_barang'=>'Keju', 'merk'=>'Craft', 'harga'=>'10000']
+        // ];
+        // DB::table('barangs')->insert($barang);
     }
 }
