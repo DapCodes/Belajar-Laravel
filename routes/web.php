@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Barang;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SiswasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -148,10 +149,15 @@ Route::get('/barang', [PostController::class, 'menampilkan2']);
 //         return "Data dengan ID $id tidak ditemukan.";
 //     }
 // });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//CRUD
+Route::resource('siswa', SiswasController::class);
