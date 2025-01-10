@@ -5,6 +5,8 @@ use App\Models\Post;
 use App\Models\Barang;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiswasController;
+use App\Http\Controllers\PpdbController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -161,3 +163,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //CRUD
 Route::resource('siswa', SiswasController::class);
+
+//CRUD
+Route::resource('ppdb', PpdbController::class);
