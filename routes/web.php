@@ -6,6 +6,8 @@ use App\Models\Barang;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiswasController;
 use App\Http\Controllers\PpdbController;
+use App\Http\Controllers\PenggunaController;
+
 
 
 /*
@@ -166,3 +168,6 @@ Route::resource('siswa', SiswasController::class);
 
 //CRUD
 Route::resource('ppdb', PpdbController::class);
+
+//CRUD
+Route::resource('pengguna', PenggunaController::class);
