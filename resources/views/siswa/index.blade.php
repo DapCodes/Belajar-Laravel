@@ -9,7 +9,7 @@
                   <h3>Data Siswa</h3>
                   <a href="{{ route('siswa.create') }}" class="btn btn-primary">ADD</a>
                 </div>
-                <div class="card-body">
+                < div class="card-body">
                   @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                       {{ session('success') }}
