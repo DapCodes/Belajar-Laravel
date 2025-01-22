@@ -13,9 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penggunas', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('nama');
+            $table->string('nama_produk');
+            $table->string('harga');
+            $table->integer('stok');
+            $table->unsignedBigInteger('id_kategori');
+
+            $table->foreign('id_kategori')->references('id')->on('kategoris')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pengguna');
+        Schema::dropIfExists('products');
     }
 };

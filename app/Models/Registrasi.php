@@ -5,15 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pengguna extends Model
+class Registrasi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'nama'];
+    protected $fillable = ['id', 'username', 'password'];
     public $timestamp = true;
-
-    public function telepon ()
-    {
-        return $this->hasOne(Telepon::class);
-    }
 }

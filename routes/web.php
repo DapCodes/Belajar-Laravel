@@ -7,6 +7,14 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SiswasController;
 use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\TeleponController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RegistrasiController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
+
 
 
 
@@ -165,9 +173,21 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //CRUD
 Route::resource('siswa', SiswasController::class);
-
-//CRUD
 Route::resource('ppdb', PpdbController::class);
 
-//CRUD
+
 Route::resource('pengguna', PenggunaController::class);
+Route::resource('telepon', TeleponController::class);
+
+
+Route::resource('kategori', KategoriController::class);
+Route::resource('product', ProductController::class);
+
+
+Route::resource('produk', ProdukController::class);
+Route::resource('customer', CustomerController::class);
+Route::resource('order', OrderController::class);
+
+
+Route::get('registrasi', [RegistrasiController::class, "index"])->name('registrasi');
+Route::post('simpan-registrasi', [RegistrasiController::class, "simpanRegistrasi"])->name('simpan-registrasi');
