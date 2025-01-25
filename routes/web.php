@@ -14,6 +14,7 @@ use App\Http\Controllers\RegistrasiController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\PenulisController;
 
 
 

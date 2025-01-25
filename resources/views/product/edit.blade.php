@@ -38,6 +38,11 @@
                                 @endforeach
                             </select>
                         </div>                          
+                        <div class="form-group mb-3">
+                            <label>Cover : </label>
+                            <img src="{{ asset('/image/product/' . $product->cover) }}" alt="" style="width: 70px; margin: 10px;">
+                            <input type="file" class="form-control" name="cover">
+                        </div>
                         <button type="submit" class="btn btn-primary" name="submit">Update</button>
                     </form>
                 </div>

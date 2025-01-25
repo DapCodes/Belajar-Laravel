@@ -17,18 +17,30 @@
                         <div class="form-group mb-3">
                             <label>Name Product</label>
                             <input type="text" class="form-control" name="name_product">
+                            @error('name_product')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label>Merk</label>
                             <input type="text" class="form-control" name="merk">
+                            @error('merk')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label>Price</label>
                             <input type="number" class="form-control" name="price">
+                            @error('price')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group mb-3">
                             <label>Stock</label>
                             <input type="number" class="form-control" name="stock">
+                            @error('merk')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </form>

@@ -15,8 +15,8 @@ class RegistrasiController extends Controller
     public function simpanRegistrasi(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string',
-            'password' => 'required|string',
+                'username' => 'required|string',
+                'password' => 'required|string',
         ]);
     }
 }

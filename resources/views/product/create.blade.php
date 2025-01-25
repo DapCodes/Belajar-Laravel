@@ -33,7 +33,11 @@
                                     <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
                                 @endforeach
                             </select>
-                        </div>                        
+                        </div>               
+                        <div class="form-group mb-3">
+                            <label>Cover</label>
+                            <input type="file" class="form-control" name="cover">
+                        </div>         
                         <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </form>
                 </div>

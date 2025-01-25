@@ -36,6 +36,23 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        // Tambahkan validasi di sini
+        $request->validate([
+            'name_product' => 'required|string|max:255',
+            'merk' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ], [
+            // Pesan error (opsional, default dari Laravel juga bisa dipakai)
+            'name_product.required' => 'Nama produk harus diisi.',
+            'merk.required' => 'Merk produk harus diisi.',
+            'price.required' => 'Harga produk harus diisi.',
+            'price.numeric' => 'Harga produk harus berupa angka.',
+            'stock.required' => 'Stok produk harus diisi.',
+            'stock.integer' => 'Stok produk harus berupa angka bulat.',
+        ]);
+
+        // Jika validasi lolos, data akan diproses
         $produk = new Produk;
         $produk->name_product = $request->name_product;
         $produk->merk = $request->merk;
@@ -46,6 +63,7 @@ class ProdukController extends Controller
 
         return redirect()->route('produk.index')->with('success', 'Data Berhasil Ditambahkan');
     }
+
 
     /**
      * Display the specified resource.
@@ -80,6 +98,21 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name_product' => 'required|string|max:255',
+            'merk' => 'required|string|max:255',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+        ], [
+            // Pesan error (opsional, default dari Laravel juga bisa dipakai)
+            'name_product.required' => 'Nama produk harus diisi.',
+            'merk.required' => 'Merk produk harus diisi.',
+            'price.required' => 'Harga produk harus diisi.',
+            'price.numeric' => 'Harga produk harus berupa angka.',
+            'stock.required' => 'Stok produk harus diisi.',
+            'stock.integer' => 'Stok produk harus berupa angka bulat.',
+        ]);
+        
         $produk = Produk::findOrFail($id);
         $produk->name_product = $request->name_product;
         $produk->merk = $request->merk;

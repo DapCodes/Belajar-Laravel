@@ -24,6 +24,7 @@
                             <th scope="col">Harga</th>
                             <th scope="col">Stok</th>
                             <th scope="col">ID Kategori</th>
+                            <th scope="col">Cover</th>
                             <th scope="col">Action</th>
                           </tr>
                         </thead>
@@ -36,6 +37,9 @@
                             <td>{{$data->harga}}</td>
                             <td>{{$data->stok}}</td>
                             <td>{{$data->kategori->nama_kategori}}</td>
+                            <td>
+                                <img style="width: 70px" src="{{ asset('/image/product/' . $data->cover) }}" alt="">
+                            </td>
                             <td style="display: flex; gap: 5px; position: relative; left:10px;">
                               <a href="{{ route('product.edit', $data->id) }}" class="btn btn-success">Edit</a>
                               <a href="{{ route('product.show', $data->id) }}" class="btn btn-warning">Show</a>
