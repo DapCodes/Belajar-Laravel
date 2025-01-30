@@ -15,6 +15,11 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PenulisController;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\PenerbitController;
 
 
 
@@ -192,3 +197,10 @@ Route::resource('order', OrderController::class);
 
 Route::get('registrasi', [RegistrasiController::class, "index"])->name('registrasi');
 Route::post('simpan-registrasi', [RegistrasiController::class, "simpanRegistrasi"])->name('simpan-registrasi');
+
+
+Route::resource('buku', BukuController::class);
+Route::resource('pembeli', PembeliController::class);
+Route::resource('transaksi', TransaksiController::class);
+Route::resource('genre', GenreController::class);
+Route::resource('penerbit', PenerbitController::class);
