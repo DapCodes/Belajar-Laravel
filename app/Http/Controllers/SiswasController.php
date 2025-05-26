@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class SiswasController extends Controller
@@ -43,6 +44,14 @@ class SiswasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nis' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|string|max:10',
+            'kelas' => 'required|string|max:10',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $siswa = new Siswa;
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama; 
@@ -58,7 +67,8 @@ class SiswasController extends Controller
 
         $siswa->save(); 
 
-        return redirect()->route('siswa.index')->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Berhasil!', 'Data Berhasil Ditambahkan');
+        return redirect()->route('siswa.index');
     }
 
     /**
@@ -94,6 +104,14 @@ class SiswasController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nis' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'jenis_kelamin' => 'required|string|max:10',
+            'kelas' => 'required|string|max:10',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         $siswa = Siswa::findOrFail($id);
         $siswa->nis = $request->nis;
         $siswa->nama = $request->nama; 
@@ -110,7 +128,8 @@ class SiswasController extends Controller
 
         $siswa->save(); 
 
-        return redirect()->route('siswa.index')->with('success', 'Data Berhasil Diubah');
+        Alert::success('Berhasil!', 'Data Berhasil Diubah');
+        return redirect()->route('siswa.index');
     }
 
     /**
@@ -123,6 +142,7 @@ class SiswasController extends Controller
     {
         $siswa = Siswa::findOrFail($id);
         $siswa->delete();
-        return redirect()->route('siswa.index')->with('success', 'Data Berhasil Dihapus');
+        Alert::warning('Dihapus!', 'Data Berhasil Dihapus');
+        return redirect()->route('siswa.index');
     }
 }

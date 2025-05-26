@@ -20,6 +20,8 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PenerbitController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Middleware\isAdmin;
 
 
 
@@ -35,9 +37,11 @@ use App\Http\Controllers\PenerbitController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', WelcomeController::class);
+
+Route::get('/detail/{id}', [WelcomeController::class, 'show'])->name('show');
+
+
 
 Route::get('/daffa', function () {
     return view('daffa');
@@ -54,6 +58,7 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return "<h1>selamat datang di halaman CONTACT</h1>";
 });
+
 
 Route::get('/siswa', function () {
     $data_siswa = ['Daffa', 'Daffa1', 'Daffa2', 'Daffa3'];
@@ -186,9 +191,6 @@ Route::resource('pengguna', PenggunaController::class);
 Route::resource('telepon', TeleponController::class);
 
 
-Route::resource('kategori', KategoriController::class);
-Route::resource('product', ProductController::class);
-
 
 Route::resource('produk', ProdukController::class);
 Route::resource('customer', CustomerController::class);
@@ -204,3 +206,13 @@ Route::resource('pembeli', PembeliController::class);
 Route::resource('transaksi', TransaksiController::class);
 Route::resource('genre', GenreController::class);
 Route::resource('penerbit', PenerbitController::class);
+
+
+// role admin
+route::prefix('admin')->middleware('auth', isAdmin::class)->group(function() {
+
+    Route::resource('kategori', KategoriController::class);
+    Route::resource('product', ProductController::class);
+    Route::resource('siswa', SiswasController::class);
+
+});
